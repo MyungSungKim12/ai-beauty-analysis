@@ -33,8 +33,8 @@ export async function POST(req: NextRequest) {
         const base64 = Buffer.from(bytes).toString('base64');
         const mimeType = file.type as 'image/jpeg' | 'image/png' | 'image/webp';
 
-        // Gemini 1.5 Flash 호출
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        // Gemini 2.5 Flash 호출
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
         const result = await model.generateContent([
             SYSTEM_PROMPT,
             { inlineData: { data: base64, mimeType } },
